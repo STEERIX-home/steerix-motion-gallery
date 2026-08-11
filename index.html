@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Steerix procedural logo motion gallery — four auto-playing GIF samples and source code."
+    />
+    <title>Steerix Motion Gallery</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, Pretendard, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        background: #030506;
+        color: #f5f7f8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100svh;
+        margin: 0;
+        background:
+          radial-gradient(circle at 50% -10%, rgb(43 87 68 / 0.3), transparent 38rem),
+          #030506;
+      }
+
+      main {
+        width: min(1480px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: clamp(48px, 8vw, 112px) 0;
+      }
+
+      header {
+        display: grid;
+        gap: 14px;
+        margin-bottom: clamp(28px, 5vw, 56px);
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: #55f18d;
+        font-size: 0.74rem;
+        font-weight: 760;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 5.4rem);
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+
+      header p:last-child {
+        max-width: 720px;
+        margin: 0;
+        color: rgb(236 243 239 / 0.62);
+        font-size: clamp(0.92rem, 1.4vw, 1.08rem);
+        line-height: 1.65;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+        gap: clamp(16px, 2.4vw, 30px);
+      }
+
+      article {
+        overflow: hidden;
+        border: 1px solid rgb(255 255 255 / 0.09);
+        border-radius: 24px;
+        background: rgb(255 255 255 / 0.035);
+        box-shadow: 0 28px 70px rgb(0 0 0 / 0.28);
+      }
+
+      .viewport {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        background: #05070a;
+      }
+
+      .viewport img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transform: scale(var(--media-zoom, 1));
+        transform-origin: center;
+      }
+
+      .viewport::after {
+        content: "AUTO";
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        padding: 6px 8px;
+        border: 1px solid rgb(85 241 141 / 0.25);
+        border-radius: 999px;
+        background: rgb(0 0 0 / 0.46);
+        color: #78ffa8;
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+      }
+
+      .copy {
+        display: grid;
+        gap: 7px;
+        padding: 20px 22px 22px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: -0.015em;
+      }
+
+      .meta {
+        margin: 0;
+        color: rgb(236 243 239 / 0.48);
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        font-size: 0.72rem;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 34px;
+        color: rgb(236 243 239 / 0.48);
+        font-size: 0.8rem;
+      }
+
+      a {
+        color: #78ffa8;
+        text-underline-offset: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Procedural motion study</p>
+        <h1>Steerix Motion Gallery</h1>
+        <p>
+          이미지 프레임 변형 없이 벡터 좌표와 수식으로 생성한 네 가지 로고 모션입니다.
+          서로 다른 원본 해상도와 비율은 동일한 16:9 뷰포트 점유율로 정규화되며 GIF는
+          페이지 진입 즉시 자동 재생됩니다.
+        </p>
+      </header>
+
+      <section class="gallery" aria-label="Steerix animation samples">
+        <article>
+          <div class="viewport">
+            <img
+              src="assets/gifs/steerix-loader-motion-1-60fps.gif"
+              alt="Steerix motion 1 diagonal sliding animation"
+              decoding="async"
+            />
+          </div>
+          <div class="copy">
+            <h2>Motion 1 · Diagonal slide</h2>
+            <p class="meta">320×320 · 60fps · 1.8s</p>
+          </div>
+        </article>
+
+        <article>
+          <div class="viewport">
+            <img
+              src="assets/gifs/steerix-loader-motion-2-60fps.gif"
+              alt="Steerix motion 2 docking and rotation animation"
+              decoding="async"
+            />
+          </div>
+          <div class="copy">
+            <h2>Motion 2 · Dock &amp; rotate</h2>
+            <p class="meta">320×320 · 60fps · 1.8s</p>
+          </div>
+        </article>
+
+        <article style="--media-zoom: 2.15">
+          <div class="viewport">
+            <img
+              src="assets/gifs/steerix-loader-motion-2-fullhd-random-60fps.gif"
+              alt="Steerix motion 2 with a random color on every frame"
+              decoding="async"
+            />
+          </div>
+          <div class="copy">
+            <h2>Motion 2 · Random colors</h2>
+            <p class="meta">1920×1080 · 60fps · 1.8s</p>
+          </div>
+        </article>
+
+        <article style="--media-zoom: 2.15">
+          <div class="viewport">
+            <img
+              src="assets/gifs/steerix-loader-motion-2-fullhd-code-rain-60fps.gif"
+              alt="Steerix motion 2 with procedural vertical code rain"
+              decoding="async"
+            />
+          </div>
+          <div class="copy">
+            <h2>Motion 2 · Code rain</h2>
+            <p class="meta">1920×1080 · 60fps · 1.8s</p>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        <span>Four GIFs, one normalized responsive viewport.</span>
+        <a href="https://github.com/kraizer-ai/steerix-motion-gallery/tree/main/src"
+          >View generation source</a
+        >
+      </footer>
+    </main>
+  </body>
+</html>
