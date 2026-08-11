@@ -2,7 +2,7 @@
 
 Four auto-playing Steerix logo motion samples generated from vector coordinates and equations—without transforming source image frames.
 
-Live gallery: <https://kraizer-ai.github.io/steerix-motion-gallery/>
+Live gallery: <https://steerix-home.github.io/steerix-motion-gallery/>
 
 <table>
   <tr>
